@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="AllTests" duration-ms="101713" started-at="2022-04-13T11:04:08 IST" finished-at="2022-04-13T11:05:50 IST">
+    <groups>
+    </groups>
+    <test name="PositiveTests" duration-ms="37206" started-at="2022-04-13T11:04:08 IST" finished-at="2022-04-13T11:04:45 IST">
+      <class name="com.herokuapp.theinternet.PositiveTests">
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.herokuapp.theinternet.PositiveTests@1f57539]" name="loginTest" duration-ms="37150" started-at="2022-04-13T11:04:08 IST" finished-at="2022-04-13T11:04:45 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTest -->
+      </class> <!-- com.herokuapp.theinternet.PositiveTests -->
+    </test> <!-- PositiveTests -->
+    <test name="NegativeTests" duration-ms="64430" started-at="2022-04-13T11:04:45 IST" finished-at="2022-04-13T11:05:50 IST">
+      <class name="com.herokuapp.theinternet.NegativeTests">
+        <test-method status="PASS" signature="incorrectPasswordTest()[pri:0, instance:com.herokuapp.theinternet.NegativeTests@29b5cd00]" name="incorrectPasswordTest" duration-ms="30707" started-at="2022-04-13T11:04:45 IST" finished-at="2022-04-13T11:05:16 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectPasswordTest -->
+        <test-method status="PASS" signature="incorrectUserNameTest()[pri:0, instance:com.herokuapp.theinternet.NegativeTests@29b5cd00]" name="incorrectUserNameTest" duration-ms="33717" started-at="2022-04-13T11:05:16 IST" finished-at="2022-04-13T11:05:50 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- incorrectUserNameTest -->
+      </class> <!-- com.herokuapp.theinternet.NegativeTests -->
+    </test> <!-- NegativeTests -->
+  </suite> <!-- AllTests -->
+</testng-results>

@@ -1,0 +1,7 @@
+1. For running test from cmd for a particular class
+	mvn -Dtest=<classname> clean test
+	
+2. For running test suite from cmd
+    - we don't need to mention suite name in cmd since we will mention it in the pom.xml surefire plugin configuration part.
+    - the cmd is
+    mvn clean test
