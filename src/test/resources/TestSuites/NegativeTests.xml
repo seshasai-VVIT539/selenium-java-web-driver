@@ -2,14 +2,21 @@
 
 <suite name="NegativeTests" verbose="1">
 
-	<test name="NegativeTests">
+	<test name="NegativeUsernameTests">
 
-		<!-- <groups>
-			<run>
-				<include name="smoketests" />
-			</run>
-		</groups> -->
+		<parameter name="username" value="incorrect" />
+		<parameter name="password" value="SuperSecretPassword!" />
+		<parameter name="expectedMessage" value="Your username is invalid!" />
+		<classes>
+			<class name="com.herokuapp.theinternet.NegativeTests" />
+		</classes>
+	</test>
+	
+	<test name="NegativePasswordTests">
 
+		<parameter name="username" value="tomsmith" />
+		<parameter name="password" value="asdfsdf" />
+		<parameter name="expectedMessage" value="Your password is invalid!" />
 		<classes>
 			<class name="com.herokuapp.theinternet.NegativeTests" />
 		</classes>
