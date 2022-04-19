@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class PositiveTests {
+public class LoginTests {
 
-	@Test
-	public void loginTest() {
+	@Test(priority = 1, groups = { "positiveTests", "smoketests" })
+	public void positiveLoginTest() {
 		System.out.println("Starting loginTest");
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 
@@ -47,7 +48,46 @@ public class PositiveTests {
 		String expectedMessage = "You logged into a secure area!";
 		String actualMessage = successMessage.getText();
 //		Assert.assertEquals(actualMessage, expectedMessage,"Actual message is not the same as expected");
-		Assert.assertTrue(actualMessage.contains(expectedMessage), "Actual message does not contain expected message\n");
+		Assert.assertTrue(actualMessage.contains(expectedMessage),
+				"Actual message does not contain expected message\n");
+
+		driver.quit();
+	}
+
+	@Parameters({ "username", "password", "expectedMessage" })
+	@Test(priority = 2, groups = { "negativeTests", "smoketests" })
+	public void negativeLoginTest(String username, String password, String expectedErrorMessage) {
+		System.out.println("Starting incorrectUserNameTest");
+		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+
+		WebDriver driver = new ChromeDriver();
+		sleep(2000);
+
+		driver.manage().window().maximize();
+		sleep(2000);
+
+		String url = "https://the-internet.herokuapp.com/login";
+		driver.get(url);
+		sleep(2000);
+
+		WebElement usernameElement = driver.findElement(By.id("username"));
+		usernameElement.sendKeys(username);
+		sleep(2000);
+
+		WebElement passwordelElement = driver.findElement(By.name("password"));
+		passwordelElement.sendKeys(password);
+		sleep(5000);
+
+		WebElement loginButton = driver.findElement(By.tagName("button"));
+		loginButton.click();
+
+//		Verifications
+
+		WebElement errorMessage = driver.findElement(By.id("flash"));
+		String actualErrorMessage = errorMessage.getText();
+
+		Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
+				"Actual error message does not contain expected error message\n");
 
 		driver.quit();
 	}
