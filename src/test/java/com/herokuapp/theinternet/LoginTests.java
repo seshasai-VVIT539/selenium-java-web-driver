@@ -5,21 +5,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LoginTests {
 
-	@Test(priority = 1, groups = { "positiveTests", "smoketests" })
-	public void positiveLoginTest() {
-		System.out.println("Starting loginTest");
+	private WebDriver driver;
+
+	@BeforeMethod(alwaysRun = true)
+	private void setUp() {
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		sleep(2000);
 
 		driver.manage().window().maximize();
 		sleep(2000);
+
+	}
+
+	@Test(priority = 1, groups = { "positiveTests", "smoketests" })
+	public void positiveLoginTest() {
+		System.out.println("Starting loginTest");
 
 		String url = "https://the-internet.herokuapp.com/login";
 		driver.get(url);
@@ -50,21 +59,12 @@ public class LoginTests {
 //		Assert.assertEquals(actualMessage, expectedMessage,"Actual message is not the same as expected");
 		Assert.assertTrue(actualMessage.contains(expectedMessage),
 				"Actual message does not contain expected message\n");
-
-		driver.quit();
 	}
 
 	@Parameters({ "username", "password", "expectedMessage" })
 	@Test(priority = 2, groups = { "negativeTests", "smoketests" })
 	public void negativeLoginTest(String username, String password, String expectedErrorMessage) {
 		System.out.println("Starting incorrectUserNameTest");
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-		sleep(2000);
-
-		driver.manage().window().maximize();
-		sleep(2000);
 
 		String url = "https://the-internet.herokuapp.com/login";
 		driver.get(url);
@@ -88,7 +88,10 @@ public class LoginTests {
 
 		Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
 				"Actual error message does not contain expected error message\n");
+	}
 
+	@AfterMethod(alwaysRun = true)
+	private void tearDown() {
 		driver.quit();
 	}
 

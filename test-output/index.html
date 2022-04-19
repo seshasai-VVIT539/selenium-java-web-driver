@@ -277,22 +277,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'negativeLoginTest')
+data.setCell(0, 1, 'positiveLoginTest')
 data.setCell(0, 2, 'com.herokuapp.theinternet.LoginTests')
-data.setCell(0, 3, 37726);
+data.setCell(0, 3, 407827);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'positiveLoginTest')
+data.setCell(1, 1, 'negativeLoginTest')
 data.setCell(1, 2, 'com.herokuapp.theinternet.LoginTests')
-data.setCell(1, 3, 37699);
+data.setCell(1, 3, 31922);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'negativeLoginTest')
 data.setCell(2, 2, 'com.herokuapp.theinternet.LoginTests')
-data.setCell(2, 3, 33084);
+data.setCell(2, 3, 29497);
 window.suiteTableData['NegativeTests']= { tableData: data, tableDiv: 'times-div-NegativeTests'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 7 minutes</span>
               <div id="times-div-NegativeTests">
               </div> <!-- times-div-NegativeTests -->
             </div> <!-- times-div -->
@@ -313,9 +313,9 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">com.herokuapp.theinternet.LoginTests</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">negativeLoginTest</span>
-                <br/>
                 <span class="ignored-method-name">positiveLoginTest</span>
+                <br/>
+                <span class="ignored-method-name">negativeLoginTest</span>
                 <br/>
                 <span class="ignored-method-name">positiveLoginTest</span>
                 <br/>
@@ -330,17 +330,29 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">com.herokuapp.theinternet.LoginTests</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">positiveLoginTest</span>
-                <span class="method-start">0 ms</span>
+                <span class="method-start">9126 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">417038 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">negativeLoginTest(incorrect, SuperSecretPassword!, Your username is invalid!)</span>
-                <span class="method-start">37781 ms</span>
+                <span class="method-start">426141 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">458075 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">negativeLoginTest(tomsmith, asdfsdf, Your password is invalid!)</span>
-                <span class="method-start">75532 ms</span>
+                <span class="method-start">464358 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
